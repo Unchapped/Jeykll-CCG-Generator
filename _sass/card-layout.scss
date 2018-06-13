@@ -1,0 +1,197 @@
+$print-margin: 0.25in;
+
+@import 'fontawesome';
+
+@mixin clearfix{
+    /* display: inline-block; */
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#00f;
+  margin:0.1in 0.0in;
+  small{
+    display:block;
+    font-style:italic;
+  }
+}
+
+h1, h2 {text-transform:uppercase;}
+
+html, body {
+    padding:0.0in;
+    margin:0.0in;
+    position: absolute;
+}
+
+div, span, li, ol {box-sizing: border-box;}
+
+main {
+    width: 11in;
+    margin: 0.0in auto;
+    @include clearfix;
+}
+
+/* TODO: fix this kludge! */
+.fa{font-family: Font Awesome\ 5 Free !important;}
+
+/* card layout */
+.card {
+    width: 2.5in;
+    height: 3.5in;
+    page-break-inside: avoid;
+    float: left;
+    border: 0.125in black solid;
+    @include rounded(0.125in);
+    margin: 0.00in;
+    background-color: #FFF;
+    padding: 0.10in;
+    position: relative;
+    .title {
+        font-size: 0.16in;
+        margin: 0.00in;
+        height: 0.30in;
+        .icon {
+            @extend .fa};
+        color: #fff;
+    }
+
+    .field {
+        background-color: #fff;
+        border: 1px solid black;
+        @include rounded(5px);
+        margin-bottom: 0.10in;
+        padding: 0.05in;
+        font-size: 0.125in;
+        &.img-wrapper {
+            height: 1.50in;
+            background-color: #000;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            padding: 0.00in;
+        }
+        &.description {
+            box-shadow: black 0.00in 0.00in 0.10in inset;
+            height: 0.80in;
+        }
+
+        &.effects {
+            box-shadow: black 0.00in 0.00in 0.10in inset;
+            text-align: center;
+            /* font-size: 1.2em; */
+            height: .25in;
+            .tag {
+                @extend .fa;
+                margin: 0.0in 0.05in;
+                &:before{margin-right:.3em;};
+            }
+        }
+    }
+}
+
+/* card classes */
+.card {
+}
+
+/* tag classes */
+.tag {
+}
+
+/* card reverse layout */
+body.back .card {
+    float: right;
+    text-align: center;
+    div, h2 {
+        display: none !important;
+    }
+    &::before {
+        content: " ";
+        background-image: url(../images/jekyll-logo-2x.png);
+        background-size: cover;
+        height: 1.25in;
+        width: 1.25in;
+        margin: 0.75in auto;
+        display: block;
+    }
+    &::after {
+        color: white;
+        content: 'Title Here!';
+        display: block;
+        position: relative;
+        top: -1.0in;
+        font-weight: bold;
+    }
+}
+
+/* print sizes, colors, and margins */
+body {
+  &.border_white .card {
+    border: 0.125in white solid;
+  }
+  &.size_a {
+    padding: 0.50in 0.50in;
+    main {
+      width: 10in;
+    }
+  }
+  &.size_b {
+    padding: 0.50in 0.50in;
+    main {width: 16in;}
+  }
+  &.size_5371 {
+    padding: 0.50in 0.25in;
+    main {width: 10in;}
+    /* use slightly skinnier card layout */
+    .card {
+      width: 2in;
+      /* .title {font-size: 0.11in;} */
+      .field {
+        &.img-wrapper {height: 1.20in;}
+        &.description {height: 1.10in;}
+      }
+    }
+  }
+}
+
+footer {
+    @include clearfix;
+}
+
+img {
+  max-width:100%;
+}
+
+
+/* Options form CSS and noprint */
+#options {
+  width: 100%;
+  margin: 0.10in;
+  padding: 0.10in;
+  color: red;
+  border: 0.05in solid red;
+  text-transform: none;
+}
+
+@media print
+{    
+    @page {
+        margin: $print-margin;
+    }
+    #options, #options *
+    {
+        display: none !important;
+    }
+}

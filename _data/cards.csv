@@ -1,0 +1,7 @@
+class,title,image,qty,description,power
+red,Fire,fire.jpg,1,"Hot stuff! Makes you feel warm! Mesmerizing, Burning, etc...",1
+blue,Water,water.jpg,1,"Wetness, so Moist! Refreshing! Don't Drown!",2
+green, Life,life.jpg,1,"Growing things! So much abundance, Eat them, eat them!!!!",3
+yellow,Earth,earth.jpg,1,"Clay and dirt! Earthworms, bacteria, silicates, so smelly!",4
+black,Death,death.jpg,1,"We are but dust, and sometimes butt dust. Too much of any other element results in this!",5
+white,Air,air.jpg,2,"Breathe! You can breathe can't you? You can? Yay!",1
