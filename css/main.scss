@@ -14,30 +14,30 @@ body {
 
 /* card classes */
 .card {
+    .bg-overlay {background-image: url(../images/cracked-earth-transparent.png);}
     &.red {
-        background-color: #ff3300;
+        background-color: darkred;
         .title .icon {@extend .fa-fire;}
     }
 
     &.yellow {
-        background-color: #cc9900;
+        background-color: darkgoldenrod;
         .title .icon {@extend .fa-adjust;}
     }
 
     &.blue {
-        background-color: #0000cc;
+        background-color: darkblue;
         .title .icon {@extend .fa-tint;}
     }
 
     &.green{
-        background-color: #33cc00;
+        background-color: darkgreen;
         .title .icon {@extend .fa-leaf;}
     }
 
     &.white {
         background-color: #eeeeee;
         .title {
-          color: black;
           .icon {@extend .fa-cloud;}
         }
     }
@@ -54,15 +54,18 @@ body {
     &.power {
         @extend .fa-bolt;
     }
+    &.status {
+        @extend .fa-adjust;
+    }
 }
 
 
 /* card reverse layout */
-body.back .card {
+body.back .card .bg-overlay{
     &::before {
         background-image: url(../images/jekyll-logo-2x.png);
     }
     &::after {
-        content: 'Title Here!';
+        content: "It's Elemental";
     }
 }

@@ -1,14 +1,16 @@
 ---
 ---
 {% for card in site.data.cards %}
-  <div class="card {{card.class}}">
+  <div class="card {{card.class}}"><div class="bg-overlay">
     <h2 class="title"><i class="icon"></i> {{card.title}}</h2>
     <div class="field img-wrapper" {% if card.image %}style="background-image: url(../images/{{card.image}});"{% endif %}></div>
     <div class="field effects">
-        {% if card.power %}<span class="fa tag power">{{card.power}}</span>{% endif %}
+        {% for effect in card.effects %}
+        <span class="fa tag {{effect[0]}}">{{effect[1]}}</span>
+        {% endfor %}
     </div>
     <div class="field description">
         {{card.description}}
     </div>
-  </div>
+  </div></div>
 {% endfor %}

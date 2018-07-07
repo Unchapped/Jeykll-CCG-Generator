@@ -1,0 +1,58 @@
+- &fire
+  class: red
+  title: Fire
+  image: fire.jpg
+  qty: 1
+  description: "Hot stuff! Makes you feel warm! Mesmerizing, Burning, etc..."
+  effects:
+    power : 1
+    status : Burning
+
+- <<: *fire
+  title: Explosion
+  image: explosion.jpg
+  description: "So Very hot, burning++!"
+  effects:
+    power : 5
+    status : Burning
+
+- class: blue
+  title: Water
+  image: water.jpg
+  qty: 1
+  description: "Wetness, so Moist! Refreshing! Don't Drown!"
+  effects:
+    power : 2
+    status : Moist
+
+- class: green
+  title: Life
+  image: life.jpg
+  qty: 1
+  description: "Growing things! So much abundance, Eat them, eat them!!!!"
+  effects:
+    power : 3
+
+- class: yellow
+  title: Earth
+  image: earth.jpg
+  qty: 1
+  description: "Clay and dirt! Earthworms, bacteria, silicates, so smelly!"
+  effects:
+    power : 4
+
+- class: black
+  title: Death
+  image: death.jpg
+  qty: 1
+  description: "We are but dust, and sometimes butt dust. Too much of any other element results in this!"
+  effects:
+    power : 5
+
+- class: white
+  title: Air
+  image: air.jpg
+  qty: 2
+  description: "Breathe! You can breathe can't you? You can? Yay!"
+  effects:
+    power : 1

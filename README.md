@@ -37,3 +37,11 @@ Shared under the Creative Commons CC0 Public Domain License
 Air by Max Pixel
 https://www.maxpixel.net/Cloud-Blue-High-Clouds-Its-In-The-Air-Sky-Air-2294671
 Shared under the Creative Commons CC0 Public Domain License
+
+Explosion
+https://pixabay.com/en/explosion-fire-brand-destroy-1039943/
+CC, No Attribution Req'd
+
+Cracked Earth texture
+https://www.publicdomainpictures.net/en/view-image.php?image=13858&picture=cracked-earth-texture
+CC0 Public Domain
