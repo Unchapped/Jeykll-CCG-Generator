@@ -1,0 +1,12 @@
+<div class="card {{include.content.class}}"><div class="bg-overlay">
+    <h2 class="title">{{include.content.title}}</h2>
+    <div class="field img-wrapper" {% if include.content.image %}style="background-image: url(../images/{{include.content.image}});"{% endif %}></div>
+    <div class="field effects">
+        {% for effect in include.content.effects %}
+        <span class="{{effect[0]}}">{{effect[1]}}</span>
+        {% endfor %}
+    </div>
+    <div class="field description">
+        {{include.content.description}}
+    </div>
+</div></div>

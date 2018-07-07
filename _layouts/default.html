@@ -12,31 +12,7 @@
         <![endif]-->
     </head>
     <body class="front size_5371 border_black">  
-        <div id="options">
-            <h3>Card print Options</h2>
-
-            <strong>Card Side</strong><br>
-            <input type="radio" name="side" value="front" checked> Front<br>
-            <input type="radio" name="side" value="back"> Back
-            <br><br>
-
-            <strong>Paper Size</strong><br>
-            <select name="size" id="size_opt">
-                <option value="size_a">Letter</option>
-                <option value="size_b">11X17</option>
-                <option value="size_5371" selected="selected">Avery 5371 Template</option>
-            </select>
-            <br><br>
-
-            <strong>Frame color</strong><br>
-            <input type="radio" name="border" value="border_black" checked> Black<br>
-            <input type="radio" name="border" value="border_white"> White
-            <br><br>
-            <strong><a href="javascript:window.print()">Print this Page</a></strong>
-        </div>
-        <main>
             {{ content }}
-        </main>
     </body>
 </html>
 
