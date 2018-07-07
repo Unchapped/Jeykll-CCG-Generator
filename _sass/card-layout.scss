@@ -1,11 +1,20 @@
 $print-margin: 0.25in;
-
-@import 'fontawesome';
+$fa-font-path: "../webfonts/";
+@import 'font-awesome';
 
 @mixin rounded($radius: 0.5em) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     border-radius: $radius;
+}
+
+@mixin fa-before{
+    @include fa-icon;
+    &::before{
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free';
+        margin-right:.25em;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-h1, h2 {text-transform:uppercase;}
+/* h1, h2 {text-transform:uppercase;} */
 
 html, body {
     padding:0.0in;
@@ -34,13 +43,6 @@ main {
     flex-direction: row;  
     flex-wrap: wrap;
 }
-
-body.back main{
-    flex-direction: row-reverse;  
-}
-
-/* TODO: fix this kludge! */
-.fa::before{font-family: Font Awesome\ 5 Free !important;}
 
 /* card layout */
 .card {
@@ -59,7 +61,6 @@ body.back main{
     width: 2.5in;
     height: 3.5in;
     page-break-inside: avoid;
-    /* float: left; */
     border: 0.125in black solid;
     @include rounded(0.125in);
     margin: 0.00in;
@@ -67,11 +68,10 @@ body.back main{
     padding: 0.0in;
     position: relative;
     .title {
+        @include fa-before;
         font-size: 0.16in;
         margin: 0.00in;
         height: 0.30in;
-        .icon {
-            @extend .fa};
         color: #fff;
     }
 
@@ -101,37 +101,38 @@ body.back main{
             /* font-size: 1.2em; */
             height: .25in;
             span {
-                /* @extend .fa; */
+                @include fa-before;
                 margin: 0.0in 0.05in;
-                &:before{margin-right:.3em;};
             }
         }
     }
 }
 
 /* card reverse layout */
-body.back .card .bg-overlay{
-    text-align: center;
-    div, h2 {
-        display: none !important;
-    }
-    &::before {
-        content: " ";
-        background-image: url(../images/jekyll-logo-2x.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center bottom; 
-        height: 1.5in;
-        display: block;
-    }
-    &::after {
-        color: white;
-        content: 'A Card Game!';
-        display: block;
-        font-weight: bold;
+body.back {
+    main{flex-direction: row-reverse;}
+    .card .bg-overlay{
+        text-align: center;
+        div, h2 {
+            display: none !important;
+        }
+        &::before {
+            content: " ";
+            background-image: url(../images/jekyll-logo-2x.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center bottom; 
+            height: 1.5in;
+            display: block;
+        }
+        &::after {
+            color: white;
+            content: 'A Card Game!';
+            display: block;
+            font-weight: bold;
+        }
     }
 }
-
 /* print sizes, colors, and margins */
 body {
   &.border_white .card {

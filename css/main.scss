@@ -1,7 +1,6 @@
 ---
 ---
 @import url('https://fonts.googleapis.com/css?family=Cinzel|Vollkorn');
-@import 'fontawesome';
 @import 'card-layout';
 
 /* fonts */
@@ -17,48 +16,35 @@ body {
     .bg-overlay {background-image: url(../images/cracked-earth-transparent.png);}
     &.red {
         background-color: darkred;
-        .title .icon {@extend .fa-fire;}
+        .title {@extend .fa-fire;}
     }
 
     &.yellow {
         background-color: darkgoldenrod;
-        .title .icon {@extend .fa-adjust;}
+        .title {@extend .fa-adjust;}
     }
 
     &.blue {
         background-color: darkblue;
-        .title .icon {@extend .fa-tint;}
+        .title {@extend .fa-tint;}
     }
 
     &.green{
         background-color: darkgreen;
-        .title .icon {@extend .fa-leaf;}
+        .title {@extend .fa-leaf;}
     }
 
     &.white {
         background-color: #eeeeee;
-        .title {
-          .icon {@extend .fa-cloud;}
-        }
+        .title {@extend .fa-cloud;}
     }
 
 
     &.black {
         background-color: #333333;
-        .title .icon {@extend .fa-skull;}
+        .title {@extend .fa-skull;}
     }
 }
-
-/* tag classes */
-.tag {
-    &.power {
-        @extend .fa-bolt;
-    }
-    &.status {
-        @extend .fa-adjust;
-    }
-}
-
 
 /* card reverse layout */
 body.back .card .bg-overlay{

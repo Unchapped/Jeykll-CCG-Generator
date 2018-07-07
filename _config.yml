@@ -1,5 +1,8 @@
 exclude: ["*.old"]
 
+gems:
+  - jekyll-font-awesome-sass
+
 defaults:
   -
     scope:
