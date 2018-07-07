@@ -2,17 +2,6 @@ $print-margin: 0.25in;
 
 @import 'fontawesome';
 
-@mixin clearfix{
-    /* display: inline-block; */
-    &:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden;
-    }
-}
-
 @mixin rounded($radius: 0.5em) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
@@ -41,11 +30,17 @@ div, span, li, ol {box-sizing: border-box;}
 main {
     width: 11in;
     margin: 0.0in auto;
-    @include clearfix;
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+}
+
+body.back main{
+    flex-direction: row-reverse;  
 }
 
 /* TODO: fix this kludge! */
-.fa{font-family: Font Awesome\ 5 Free !important;}
+.fa::before{font-family: Font Awesome\ 5 Free !important;}
 
 /* card layout */
 .card {
@@ -64,7 +59,7 @@ main {
     width: 2.5in;
     height: 3.5in;
     page-break-inside: avoid;
-    float: left;
+    /* float: left; */
     border: 0.125in black solid;
     @include rounded(0.125in);
     margin: 0.00in;
@@ -105,8 +100,8 @@ main {
             text-align: center;
             /* font-size: 1.2em; */
             height: .25in;
-            .tag {
-                @extend .fa;
+            span {
+                /* @extend .fa; */
                 margin: 0.0in 0.05in;
                 &:before{margin-right:.3em;};
             }
@@ -114,17 +109,8 @@ main {
     }
 }
 
-/* card classes */
-.card {
-}
-
-/* tag classes */
-.tag {
-}
-
 /* card reverse layout */
 body.back .card .bg-overlay{
-    float: right;
     text-align: center;
     div, h2 {
         display: none !important;
@@ -136,7 +122,6 @@ body.back .card .bg-overlay{
         background-repeat: no-repeat;
         background-position: center bottom; 
         height: 1.5in;
-        width: 1.5in;
         display: block;
     }
     &::after {
@@ -176,15 +161,6 @@ body {
     }
   }
 }
-
-footer {
-    @include clearfix;
-}
-
-img {
-  max-width:100%;
-}
-
 
 /* Options form CSS and noprint */
 #options {
