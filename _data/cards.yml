@@ -45,7 +45,7 @@
   title: Death
   image: death.jpg
   qty: 1
-  description: "We are but dust, and sometimes butt dust. Too much of any other element results in this!"
+  description: "We are but dust, and sometimes butt dust. Too much of any other element results in this! 140 characters is the limit so it ends right here..."
   effects:
     fa-bolt : 5
 

@@ -1,6 +1,6 @@
 exclude: ["*.old"]
 
-gems:
+plugins:
   - jekyll-font-awesome-sass
 
 defaults:

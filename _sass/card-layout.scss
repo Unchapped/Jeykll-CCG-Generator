@@ -1,4 +1,3 @@
-$print-margin: 0.25in;
 $fa-font-path: "../webfonts/";
 @import 'font-awesome';
 
@@ -10,6 +9,7 @@ $fa-font-path: "../webfonts/";
 
 @mixin fa-before{
     @include fa-icon;
+    vertical-align: baseline;
     &::before{
         font-weight: 900;
         font-family: 'Font Awesome 5 Free';
@@ -56,7 +56,6 @@ main {
         background-image: url(../images/carbonfiber-transparent.png);
         background-size: cover;
         background-position: center;
-
     }
     width: 2.5in;
     height: 3.5in;
@@ -81,9 +80,9 @@ main {
         @include rounded(5px);
         margin-bottom: 0.10in;
         padding: 0.05in;
-        font-size: 0.125in;
+        font-size: 0.15in;
         &.img-wrapper {
-            height: 1.50in;
+            height: 1.20in;
             background-color: #000;
             background-size: cover;
             background-repeat: no-repeat;
@@ -92,14 +91,14 @@ main {
         }
         &.description {
             box-shadow: black 0.00in 0.00in 0.10in inset;
-            height: 0.80in;
+            height: 1.00in;
+            font-size: 0.125in;
         }
 
         &.effects {
             box-shadow: black 0.00in 0.00in 0.10in inset;
             text-align: center;
-            /* font-size: 1.2em; */
-            height: .25in;
+            height: .3in;
             span {
                 @include fa-before;
                 margin: 0.0in 0.05in;
@@ -135,29 +134,20 @@ body.back {
 }
 /* print sizes, colors, and margins */
 body {
+  padding: 0.25in 0.25in;
+  main {width: 10in;}
   &.border_white .card {
     border: 0.125in white solid;
   }
-  &.size_a {
-    padding: 0.50in 0.50in;
-    main {
-      width: 10in;
-    }
-  }
-  &.size_b {
-    padding: 0.50in 0.50in;
-    main {width: 16in;}
-  }
   &.size_5371 {
-    padding: 0.50in 0.25in;
-    main {width: 10in;}
+    padding: 0.25in 0.0in;
     /* use slightly skinnier card layout */
     .card {
       width: 2in;
-      /* .title {font-size: 0.11in;} */
       .field {
-        &.img-wrapper {height: 1.20in;}
         &.description {height: 1.10in;}
+        &.effects {height: .25in;}
+        font-size: 0.125in;
       }
     }
   }
@@ -173,13 +163,29 @@ body {
   text-transform: none;
 }
 
+p.instructions {
+    position: absolute;
+    top: 0in;
+    height: 0.20in;
+    width: 100%;
+    text-align:center;
+    margin: 0in;
+    padding: 0in;
+    display: none;
+}
+
+/* this stuff is here in case any web browser decides to actually pay attention to the CSS print spec */
 @media print
 {    
     @page {
-        margin: $print-margin;
+        size: letter landscape;
+        margin: 0.50in !important;
     }
     #options, #options *
     {
         display: none !important;
+    }
+    p.instructions {
+        display:block;
     }
 }
