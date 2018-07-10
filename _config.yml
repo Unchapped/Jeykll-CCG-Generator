@@ -1,11 +1,9 @@
 exclude: ["*.old"]
 
-#plugins:
-#  - jekyll-font-awesome-sass
+baseurl: ''
 
 sass:
-    sass_dir: _sass
-    style: nested
+    style: compressed
 
 defaults:
   -

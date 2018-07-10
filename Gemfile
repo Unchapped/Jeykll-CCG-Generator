@@ -1,4 +1,4 @@
 source "https://rubygems.org" do
   # Gems here
-  gem 'jekyll-font-awesome-sass'
+  gem "github-pages", group: :jekyll_plugins
 end
