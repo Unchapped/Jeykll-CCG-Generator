@@ -1,5 +1,6 @@
-$fa-font-path: "../webfonts/";
-@import 'font-awesome';
+$fa-font-path: "../../webfonts";
+@import 'fontawesome/fontawesome';
+@import 'fontawesome/fa-solid';
 
 @mixin rounded($radius: 0.5em) {
     -webkit-border-radius: $radius;

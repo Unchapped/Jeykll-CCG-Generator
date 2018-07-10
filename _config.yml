@@ -1,7 +1,11 @@
 exclude: ["*.old"]
 
-plugins:
-  - jekyll-font-awesome-sass
+#plugins:
+#  - jekyll-font-awesome-sass
+
+sass:
+    sass_dir: _sass
+    style: nested
 
 defaults:
   -
