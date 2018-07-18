@@ -2,6 +2,10 @@
 An HTML-based rendering tool for collectible card games using Jekyll
 
 
+## Libraries
+Uses the awesome Fontawesome icons:
+Font Awesome Free 5.1.0 by @fontawesome - https://fontawesome.com
+License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 
 ## Included Asset Licenses

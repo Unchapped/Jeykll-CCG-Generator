@@ -1,0 +1,72 @@
+---
+---
+@import 'fontawesome/variables';
+@import 'fontawesome/icons'; 
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Vollkorn');
+
+
+/* fonts */
+body {
+  font-family: 'Vollkorn', serif;
+  .card .title {font-family: 'Cinzel', serif;}
+}
+
+
+
+/* card classes */
+.card {
+    color: #000;
+    .bg-overlay {
+        border: 1px black solid;
+        background-image: url(../images/cracked-earth-transparent.png);
+    }
+
+    .field {
+        background-color: #fff;
+        border: 1px solid black;
+        border-radius: 5px;
+        &.description {box-shadow: black 0.00in 0.00in 0.10in inset;}
+        &.effects {box-shadow: black 0.00in 0.00in 0.10in inset;}
+    }
+
+    &.red {
+        background-color: darkred;
+        .title {@extend .fa-fire;}
+    }
+
+    &.yellow {
+        background-color: darkgoldenrod;
+        .title {@extend .fa-adjust;}
+    }
+
+    &.blue {
+        background-color: darkblue;
+        .title {@extend .fa-tint;}
+    }
+
+    &.green{
+        background-color: darkgreen;
+        .title {@extend .fa-leaf;}
+    }
+
+    &.white {
+        background-color: #eeeeee;
+        .title {@extend .fa-cloud;}
+    }
+
+
+    &.black {
+        background-color: #333333;
+        .title {@extend .fa-skull;}
+    }
+}
+
+/* card reverse layout */
+body.back .card .bg-overlay{
+    &::before {
+        background-image: url(../images/jekyll-logo-2x.png);
+    }
+    &::after {
+        content: "It's Elemental";
+    }
+}

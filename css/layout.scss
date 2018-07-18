@@ -1,0 +1,231 @@
+---
+---
+/* NOTE: Layout template! Only edit this file in the TODO #3 Branch! Keep all customizations in your own branch! */
+
+@import 'fontawesome/fontawesome';
+@import 'fontawesome/variables';
+@import 'fontawesome/icons'; 
+
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin fa-before{
+    @include fa-icon;
+    vertical-align: baseline;
+    &::before{
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free';
+        margin-right:.25em;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#00f;
+  margin:0.1in 0.0in;
+  small{
+    display:block;
+    font-style:italic;
+  }
+}
+
+/* h1, h2 {text-transform:uppercase;} */
+
+html, body {
+    padding:0.0in;
+    margin:0.0in;
+    position: absolute;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div, span, li, ol {box-sizing: border-box;}
+
+main {
+    width: 11in;
+    margin: 0.0in auto;
+    position: relative;
+    &>div{
+        display: flex;
+        flex-direction: row;  
+        flex-wrap: wrap;
+    }
+}
+
+/* card layout */
+.card {
+    .bg-overlay {
+        position: relative;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        padding: 0.10in;
+        background-image: url(../images/carbonfiber-transparent.png);
+        background-size: cover;
+        background-position: center;
+    }
+    width: 2.5in;
+    height: 3.5in;
+    page-break-inside: avoid;
+    border: 0.125in black solid;
+    border-radius: 0.125in;
+    margin: 0.00in;
+    color: #fff;
+    background-color: #000;
+    padding: 0.0in;
+    position: relative;
+    .title {
+        @include fa-before;
+        @extend .fa-star;
+        font-size: 0.16in;
+        margin: 0.00in;
+        height: 0.30in;
+        color: #fff;
+    }
+
+    .field {
+        margin-bottom: 0.10in;
+        padding: 0.05in;
+        font-size: 0.15in;
+        &.img-wrapper {
+            height: 1.20in;
+            background-color: #000;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 0.00in;
+        }
+        &.description {
+            height: 1.00in;
+            font-size: 0.125in;
+        }
+        &.effects {
+            text-align: center;
+            height: .3in;
+            span {
+                @include fa-before;
+                margin: 0.0in 0.05in;
+            }
+        }
+    }
+}
+
+/* card reverse layout */
+div.back {
+    /* this flips the card order */
+    flex-direction: row-reverse;
+
+    /*this renders the logo and title */
+    .card .bg-overlay{
+        text-align: center;
+        div, h2 {
+            display: none !important;
+        }
+        &::before {
+            content: " ";
+            background-image: url(../images/jekyll-logo-2x.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center bottom; 
+            height: 1.5in;
+            display: block;
+        }
+        &::after {
+            color: white;
+            content: 'A Card Game!';
+            display: block;
+            font-weight: bold;
+        }
+    }
+}
+
+/* two-sided printing options */
+span.card-spacer {
+    page-break-inside: avoid;
+    width: 100%;
+    height: 8in;
+    display: none;
+}
+
+/*fix page margins when displaying only one side */
+body.front_only span.card-spacer, body.back_only span.card-spacer{height: 0.5in;}
+
+/* skip a page every X cards to render the backs */
+body.size_a .card-spacer:nth-of-type(8n+0) {display: block;}
+body.size_5371 .card-spacer:nth-of-type(10n+0) {display: block;}
+
+body.front_back {
+    /* offset the card backs by a page */
+    div.back {
+        position: absolute;
+        top: 7.5in;
+    }
+}
+
+body.front_only div.back{display: none;}
+body.back_only div.front{display: none;}
+
+
+/* print sizes, colors, and margins */
+body {
+    padding: 0.25in 0.25in;
+    main {width: 10in;}
+
+    /* turn off the curved black border around cards */
+    &.border_white .card {border: 0.125in white solid;}
+    &.size_5371 {
+        /* use slightly skinnier card layout */
+        padding: 0.25in 0.0in;
+        .card {
+            width: 2in;
+            .field {
+                &.description {height: 1.10in;}
+                &.effects {height: .25in;}
+                ont-size: 0.125in;
+            }
+        }
+    }
+}
+
+/* Options form CSS and noprint */
+#options {
+    width: 100%;
+    margin: 0.10in;
+    padding: 0.10in;
+    color: red;
+    border: 0.05in solid red;
+    text-transform: none;
+}
+
+p.instructions {
+    position: absolute;
+    top: 0in;
+    height: 0.20in;
+    width: 100%;
+    text-align:center;
+    margin: 0in;
+    padding: 0in;
+    display: none;
+}
+
+/* this stuff is here in case any web browser decides to actually pay attention to the CSS print spec */
+@page {
+    size: letter landscape;
+    margin: 0.50in !important;
+}
+
+@media print
+{    
+    #options, #options *
+    {
+        display: none !important;
+    }
+    p.instructions {
+        display:block;
+    }
+}
