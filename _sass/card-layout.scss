@@ -43,14 +43,18 @@ div, span, li, ol {box-sizing: border-box;}
 main {
     width: 11in;
     margin: 0.0in auto;
-    display: flex;
-    flex-direction: row;  
-    flex-wrap: wrap;
+    position: relative;
+    &>div{
+        display: flex;
+        flex-direction: row;  
+        flex-wrap: wrap;
+    }
 }
 
 /* card layout */
 .card {
     .bg-overlay {
+        border: 1px black solid;
         position: relative;
         left: 0px;
         top: 0px;
@@ -112,8 +116,11 @@ main {
 }
 
 /* card reverse layout */
-body.back {
-    main{flex-direction: row-reverse;}
+div.back {
+    /* this flips the card order */
+    flex-direction: row-reverse;
+
+    /*this renders the logo and title */
     .card .bg-overlay{
         text-align: center;
         div, h2 {
@@ -136,35 +143,63 @@ body.back {
         }
     }
 }
+
+/* two-sided printing options */
+span.card-spacer {
+    page-break-inside: avoid;
+    width: 100%;
+    height: 8in;
+    display: none;
+}
+
+/*fix page margins when displaying only one side */
+body.front_only span.card-spacer, body.back_only span.card-spacer{height: 0.5in;}
+
+/* skip a page every X cards to render the backs */
+body.size_a .card-spacer:nth-of-type(8n+0) {display: block;}
+body.size_5371 .card-spacer:nth-of-type(10n+0) {display: block;}
+
+body.front_back {
+    /* offset the card backs by a page */
+    div.back {
+        position: absolute;
+        top: 7.5in;
+    }
+}
+
+body.front_only div.back{display: none;}
+body.back_only div.front{display: none;}
+
+
 /* print sizes, colors, and margins */
 body {
-  padding: 0.25in 0.25in;
-  main {width: 10in;}
-  &.border_white .card {
-    border: 0.125in white solid;
-  }
-  &.size_5371 {
-    padding: 0.25in 0.0in;
-    /* use slightly skinnier card layout */
-    .card {
-      width: 2in;
-      .field {
-        &.description {height: 1.10in;}
-        &.effects {height: .25in;}
-        font-size: 0.125in;
-      }
+    padding: 0.25in 0.25in;
+    main {width: 10in;}
+
+    /* turn off the curved black border around cards */
+    &.border_white .card {border: 0.125in white solid;}
+    &.size_5371 {
+        /* use slightly skinnier card layout */
+        padding: 0.25in 0.0in;
+        .card {
+            width: 2in;
+            .field {
+                &.description {height: 1.10in;}
+                &.effects {height: .25in;}
+                ont-size: 0.125in;
+            }
+        }
     }
-  }
 }
 
 /* Options form CSS and noprint */
 #options {
-  width: 100%;
-  margin: 0.10in;
-  padding: 0.10in;
-  color: red;
-  border: 0.05in solid red;
-  text-transform: none;
+    width: 100%;
+    margin: 0.10in;
+    padding: 0.10in;
+    color: red;
+    border: 0.05in solid red;
+    text-transform: none;
 }
 
 p.instructions {
@@ -179,12 +214,13 @@ p.instructions {
 }
 
 /* this stuff is here in case any web browser decides to actually pay attention to the CSS print spec */
+@page {
+    size: letter landscape;
+    margin: 0.50in !important;
+}
+
 @media print
 {    
-    @page {
-        size: letter landscape;
-        margin: 0.50in !important;
-    }
     #options, #options *
     {
         display: none !important;

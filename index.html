@@ -5,8 +5,9 @@
     <h3>Card print Options</h2>
 
     <strong>Card Side</strong><br>
-    <input type="radio" name="side" value="front" checked> Front<br>
-    <input type="radio" name="side" value="back"> Back
+    <input type="radio" name="side" value="front_back" checked> Front & Back<br>
+    <input type="radio" name="side" value="front_only"> Front<br>
+    <input type="radio" name="side" value="back_only"> Back
     <br><br>
 
     <strong>Paper Size</strong><br>
@@ -23,9 +24,20 @@
     <strong><a href="javascript:window.print()">Print this Page</a></strong>
 </div>
 <main>
+<div class="front">
     {% for card in site.data.cards %}
     {% for i in (1..card.qty) %}
     {% include card.html content=card %}
+    <span class="card-spacer"></span>
     {% endfor %}
     {% endfor %}
+</div>
+<div class="back">    
+    {% for card in site.data.cards %}
+    {% for i in (1..card.qty) %}
+    <div class="card {{card.class}}"><div class="bg-overlay"></div></div>
+    <span class="card-spacer"></span>
+    {% endfor %}
+    {% endfor %}
+</div>
 </main>

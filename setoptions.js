@@ -1,7 +1,8 @@
 $(document).ready(function() {
     $('input[type=radio][name=side]').change(function() {
-    	$('body').removeClass('front');
-    	$('body').removeClass('back');
+        $('body').removeClass('front_back');
+    	$('body').removeClass('front_only');
+    	$('body').removeClass('back_only');
     	$('body').addClass(this.value);
     });
 
