@@ -6,15 +6,11 @@
 @import 'fontawesome/variables';
 @import 'fontawesome/icons'; 
 
-@mixin rounded($radius: 0.5em) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
-}
+/* variables used for rendering */
+$card-margin: 0.1in;
+$phi: 1.618;
 
 @mixin fa-before{
-    @include fa-icon;
-    vertical-align: baseline;
     &::before{
         font-weight: 900;
         font-family: 'Font Awesome 5 Free';
@@ -58,81 +54,80 @@ main {
 
 /* card layout */
 .card {
-    .bg-overlay {
-        position: relative;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        padding: 0.10in;
-        background-image: url(../images/carbonfiber-transparent.png);
-        background-size: cover;
-        background-position: center;
-    }
     width: 2.5in;
     height: 3.5in;
     page-break-inside: avoid;
-    border: 0.125in black solid;
-    border-radius: 0.125in;
-    margin: 0.00in;
+    border: $card-margin black solid;
+    border-radius: $card-margin;
     color: #fff;
     background-color: #000;
-    padding: 0.0in;
-    position: relative;
-    .title {
-        @include fa-before;
-        @extend .fa-star;
-        font-size: 0.16in;
-        margin: 0.00in;
-        height: 0.30in;
-        color: #fff;
-    }
 
-    .field {
-        margin-bottom: 0.10in;
-        padding: 0.05in;
+    .bg-overlay {
+        width: 100%;
+        height: 100%;
+        padding: $card-margin/2;
+        background-image: url(../images/carbonfiber-transparent.png);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
         font-size: 0.15in;
-        &.img-wrapper {
-            height: 1.20in;
-            background-color: #000;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            padding: 0.00in;
+        div {
+            margin: $card-margin/2;
+            flex: 0 1 auto;
+            &.title, .effects {flex-grow: 0;}
+            &.img-wrapper {flex: 1.5 1 0.1in;}
+            &.description {flex: 1 1 0.1in;}
         }
-        &.description {
-            height: 1.00in;
-            font-size: 0.125in;
+
+        &::before, &::after {
+            flex: 1 1 0.1in;
         }
-        &.effects {
-            text-align: center;
-            height: .3in;
-            span {
-                @include fa-before;
-                margin: 0.0in 0.05in;
+
+        .title {
+            @include fa-before;
+            @extend .fa-star;
+            font-size: 0.16in;
+            color: #fff;
+        }
+
+        .field {
+            padding: $card-margin/2;
+            &.img-wrapper {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            &.description {
+                font-size: 0.125in;
+            }
+            &.effects {
+                text-align: center;
+                span {
+                    @include fa-before;
+                    margin: 0.0in $card-margin/2;
+                }
             }
         }
     }
 }
 
 /* card reverse layout */
-div.back {
+.back {
     /* this flips the card order */
     flex-direction: row-reverse;
 
     /*this renders the logo and title */
     .card .bg-overlay{
         text-align: center;
-        div, h2 {
-            display: none !important;
-        }
+        div {display: none !important;}
         &::before {
             content: " ";
             background-image: url(../images/jekyll-logo-2x.png);
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center bottom; 
-            height: 1.5in;
             display: block;
         }
         &::after {
@@ -175,7 +170,6 @@ body.back_only div.front{display: none;}
 body {
     padding: 0.25in 0.25in;
     main {width: 10in;}
-
     /* turn off the curved black border around cards */
     &.border_white .card {border: 0.125in white solid;}
     &.size_5371 {
@@ -184,9 +178,8 @@ body {
         .card {
             width: 2in;
             .field {
-                &.description {height: 1.10in;}
-                &.effects {height: .25in;}
-                ont-size: 0.125in;
+                &.img-wrapper {flex: 1 1 0.1in;}
+                font-size: 0.125in;
             }
         }
     }

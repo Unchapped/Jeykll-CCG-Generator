@@ -49,3 +49,7 @@ CC, No Attribution Req'd
 Cracked Earth texture
 https://www.publicdomainpictures.net/en/view-image.php?image=13858&picture=cracked-earth-texture
 CC0 Public Domain
+
+Mortar and Pestle
+https://pixabay.com/en/cookery-cooking-kitchen-lab-2028384/
+CC0 Public Domain

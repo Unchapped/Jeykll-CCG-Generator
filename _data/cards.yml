@@ -6,7 +6,7 @@
   description: "Hot stuff! Makes you feel warm! Mesmerizing, Burning, etc..."
   effects:
     fa-bolt : 1
-    fa-adjust : Burning
+    fa-flask : Burning
 
 - <<: *fire
   title: Explosion
@@ -15,7 +15,7 @@
   qty: 1
   effects:
     fa-bolt : 5
-    fa-adjust : Burning
+    fa-flask : Burning
 
 - class: blue
   title: Water
@@ -24,7 +24,7 @@
   description: "Wetness, so Moist! Refreshing! Don't Drown!"
   effects:
     fa-bolt : 2
-    fa-adjust : Moist
+    fa-flask : Moist
 
 - class: green
   title: Life

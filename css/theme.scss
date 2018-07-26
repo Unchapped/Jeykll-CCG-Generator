@@ -8,7 +8,7 @@
 /* fonts */
 body {
   font-family: 'Vollkorn', serif;
-  .card .title {font-family: 'Cinzel', serif;}
+  .card .title, .back .card .bg-overlay::after {font-family: 'Cinzel', serif;}
 }
 
 
@@ -62,11 +62,15 @@ body {
 }
 
 /* card reverse layout */
-body.back .card .bg-overlay{
+.back .card .bg-overlay{
     &::before {
-        background-image: url(../images/jekyll-logo-2x.png);
+        background-image: url(../images/mortar_pestle.svg);
+        background-size: 1.25in;
+        flex-grow: 3;
     }
     &::after {
-        content: "It's Elemental";
+        content: "Cards of Alchemy";
+        font-size: 0.20in;
+        flex-grow: 2;
     }
 }
