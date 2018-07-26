@@ -100,6 +100,7 @@ main {
             }
             &.description {
                 font-size: 0.125in;
+                padding: $card-margin/2;
             }
             &.effects {
                 text-align: center;
