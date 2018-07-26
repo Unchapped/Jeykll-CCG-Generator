@@ -93,7 +93,6 @@ main {
         }
 
         .field {
-            padding: $card-margin/2;
             &.img-wrapper {
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -106,7 +105,7 @@ main {
                 text-align: center;
                 span {
                     @include fa-before;
-                    margin: 0.0in $card-margin/2;
+                    margin: $card-margin/2;
                 }
             }
         }
