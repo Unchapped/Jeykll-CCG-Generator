@@ -1,10 +1,18 @@
 /*!
- * Font Awesome Free 5.1.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 @import 'variables';
 @import 'mixins';
 @import 'core';
-@import 'icons'
-
-/* stripped down to just the parts we need, everything else is left to the CDN */
+/*
+@import 'larger';
+@import 'fixed-width';
+@import 'list';
+@import 'bordered-pulled';
+@import 'animated';
+@import 'rotated-flipped';
+@import 'stacked';
+@import 'screen-reader';
+*/
+@import 'icons';
